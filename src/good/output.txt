@@ -1,0 +1,24 @@
+-------------------------------------------
+$ go run ./src/good file
+Clean filename=prefix/file error=<nil>
+Abs filename=prefix/file error=<nil>
+PathEscape filename=prefix/file error=<nil>
+
+-------------------------------------------
+$ go run ./src/good ../../../../../../../../../../../../../../etc/passwd
+Clean filename=/etc/passwd error=<nil>
+Abs filename=/etc/passwd error=<nil>
+PathEscape filename=/etc/passwd error=<nil>
+
+-------------------------------------------
+$ go run github.com/securego/gosec/v2/cmd/gosec@v2.28.0 --color=false --include G703 ./src/good
+Results:
+
+
+Summary:
+  Gosec  : dev
+  Files  : 1
+  Lines  : 28
+  Nosec  : 0
+  Issues : 0
+

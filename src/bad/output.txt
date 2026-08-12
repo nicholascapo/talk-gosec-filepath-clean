@@ -1,0 +1,27 @@
+-------------------------------------------
+$ go run ./src/bad file
+stat filename=prefix/file error=<nil>
+
+-------------------------------------------
+$ go run ./src/bad ../../../../../../../../../../../../../../etc/passwd
+stat filename=/etc/passwd error=<nil>
+
+-------------------------------------------
+$ go run github.com/securego/gosec/v2/cmd/gosec@v2.28.0 --color=false --include G703 ./src/bad
+Results:
+
+
+[src/bad/main.go:13] - G703 (CWE-22): Path traversal via taint analysis (Confidence: HIGH, Severity: HIGH)
+    12: 
+  > 13: 	_, err := os.Stat(filename)
+    14: 	fmt.Printf("stat filename=%s error=%v\n", filename, err)
+
+Autofix: 
+
+Summary:
+  Gosec  : dev
+  Files  : 1
+  Lines  : 15
+  Nosec  : 0
+  Issues : 1
+

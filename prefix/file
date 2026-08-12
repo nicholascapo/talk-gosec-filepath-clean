@@ -1,0 +1,1 @@
+An example file that exists so we can call os.Stat() on it

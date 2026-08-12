@@ -1,0 +1,5 @@
+$ go run ./src/simple
+/etc/passwd
+/path/example/etc/passwd
+/etc/passwd
+/etc/passwd
